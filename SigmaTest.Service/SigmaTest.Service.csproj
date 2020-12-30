@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\**" />
+    <EmbeddedResource Remove="Features\**" />
+    <None Remove="Features\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contract\IAccountService.cs" />
+    <Compile Remove="Contract\IAuthenticatedUserService.cs" />
+    <Compile Remove="Contract\IEmailService.cs" />
+    <Compile Remove="Implementation\AccountService.cs" />
+    <Compile Remove="Implementation\MailService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\ShortnerFeatures\Commands\CreateShortnerCommand.cs" />
+    <Compile Include="Features\ShortnerFeatures\Commands\UpdateShortnerCommand.cs" />
+    <Compile Include="Features\ShortnerFeatures\Queries\GetShortnerByUrlQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="9.1.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.1.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="MailKit" Version="2.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.7" />
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="MimeKit" Version="2.9.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SigmaTest.DataAccess\SigmaTest.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
